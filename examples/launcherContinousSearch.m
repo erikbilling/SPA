@@ -17,7 +17,7 @@ sigma_exc = 2;
 sim = Simulator();
 
 % create inputs (and sum for visualization)
-sim.addElement(GaussStimulus2D('goal', [fieldSize fieldSize], sigma_exc, sigma_exc, 11, 75, 25, true, false));
+sim.addElement(GaussPosition2D('goal', [fieldSize fieldSize], sigma_exc, sigma_exc, 12, 75, 25, true, false));
 sim.addElement(GaussStimulus2D('stimulus 2', [fieldSize fieldSize], sigma_exc, sigma_exc, 0, 25, 75, true, false));
 sim.addElement(GaussStimulus2D('cstate', [fieldSize fieldSize], sigma_exc, sigma_exc, -15, 75, 75, true, false));
 
