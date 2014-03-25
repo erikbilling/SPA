@@ -1,7 +1,7 @@
 
 % Search example over a 2D surface, using four elementary behaviors (north,
 % east, south, and west). The four EBs are connected in a pattern that
-% coresponds to a map. A stimulation at a specific goal position in the
+% corresponds to a map. A stimulation at a specific goal position in the
 % motivation fields will create a dijkstra-like search for the
 % starting point (indicated by inhibitions in the precondition fields).
 % When the starting point is reached, the shortest path is chased back
