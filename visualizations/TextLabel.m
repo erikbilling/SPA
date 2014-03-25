@@ -39,7 +39,6 @@ classdef TextLabel < Visualization
     % update
     function obj = update(obj)
 %       set(obj.plotHandle, 'ZData', obj.plotElementHandle.(obj.plotComponent));
-        obj.simulator
     end
     
     % check control object and update simulator object if required

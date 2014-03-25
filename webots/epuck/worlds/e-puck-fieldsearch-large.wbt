@@ -1,0 +1,190 @@
+#VRML_SIM V6.0 utf8
+WorldInfo {
+  info [
+    "The model of the E-puck robot"
+    "Author: Simon Blanchoud"
+    "Date: 01 SEP 2006"
+  ]
+  title "E-puck"
+}
+Viewpoint {
+  orientation -0.398542 0.760076 0.513273 2.0619
+  position 1.07059 2.38784 -0.296769
+}
+DirectionalLight {
+  ambientIntensity 0.4
+  direction 0.3 -1 -0.5
+  intensity 0.4
+  castShadows TRUE
+}
+DirectionalLight {
+  ambientIntensity 0.4
+  direction 0.3 -1 0.5
+  intensity 0.4
+  castShadows TRUE
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+DEF Maze_Wall17 WoodBox {
+  translation -0.65392 0.03 -0.115553
+  rotation 0 1 0 1.57
+  boxSize 0.1 0.025 0.3
+}
+DEF Maze_Wall1 WoodBox {
+  translation -0.55 0.03 -0.85
+  rotation 0 1 0 1.57
+  boxSize 0.1 0.025 0.7
+}
+DEF Maze_Wall13 WoodBox {
+  translation 0.8 0.03 -0.05
+  rotation 0 1 0 1.57
+  boxSize 0.1 0.025 0.4
+}
+DEF Maze_Wall7 WoodBox {
+  translation 0.1 0.03 -0.15
+  rotation 0 1 0 1.57
+  boxSize 0.1 0.025 0.8
+}
+DEF Maze_Wall6 WoodBox {
+  translation 0.501854 0.03 0.149983
+  rotation 0 1 0 1.57
+  boxSize 0.1 0.025 0.8
+}
+DEF Maze_Wall5 WoodBox {
+  translation -0.507231 0.03 0.150277
+  rotation 0 1 0 1.57
+  boxSize 0.1 0.025 1
+}
+DEF Maze_Wall8 WoodBox {
+  translation -0.0593487 0.03 0.348352
+  rotation 0 1 0 3.14159
+  boxSize 0.1 0.025 0.3
+}
+DEF Maze_Wall11 WoodBox {
+  translation 0.39504 0.03 0.524203
+  rotation 0 1 0 3.14159
+  boxSize 0.1 0.025 0.65
+}
+DEF Maze_Wall10 WoodBox {
+  translation -0.65 0.03 -0.55
+  rotation 0 1 0 3.14159
+  boxSize 0.1 0.025 0.5
+}
+DEF Maze_Wall16 WoodBox {
+  translation -0.45 0.03 -0.35
+  rotation 0 1 0 3.14159
+  boxSize 0.1 0.025 0.7
+}
+DEF Maze_Wall15 WoodBox {
+  translation -0.85 0.03 -0.35
+  rotation 0 1 0 3.14159
+  boxSize 0.1 0.025 0.7
+}
+DEF Maze_Wall14 WoodBox {
+  translation 0.148811 0.03 0.651531
+  rotation 0 1 0 3.14159
+  boxSize 0.1 0.025 0.7
+}
+DEF Maze_Wall12 WoodBox {
+  translation 0.694202 0.03 0.587371
+  rotation 0 1 0 3.14159
+  boxSize 0.2 0.025 0.5
+}
+DEF Maze_Wall9 WoodBox {
+  translation -0.0587055 0.03 0.845028
+  rotation 0 1 0 3.14159
+  boxSize 0.1 0.025 0.3
+}
+DEF Maze_Wall4 WoodBox {
+  translation -0.35 0.03 0.45
+  rotation 0 1 0 3.14159
+  boxSize 0.1 0.025 0.3
+}
+DEF Maze_Wall3 WoodBox {
+  translation -0.756273 0.03 0.650195
+  rotation 0 1 0 3.14159
+  boxSize 0.1 0.025 0.3
+}
+DEF Maze_Wall2 WoodBox {
+  translation -0.553142 0.03 0.55098
+  rotation 0 1 0 1.5708
+  boxSize 0.1 0.025 0.3
+}
+WoodBox {
+  translation -0.25 1e-05 -0.4
+  boxSize 0.1 1e-06 0.1
+  color 0 1 0
+}
+DEF WALL1 Solid {
+  translation 1.00972 0.02 -0.000771906
+  children [
+    DEF WALL_SHAPE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 1 1
+          specularColor 0.196078 0.196078 0
+        }
+        texture ImageTexture {
+          url [
+            "textures/brick_wall.jpg"
+          ]
+        }
+        textureTransform TextureTransform {
+          scale 1 0.1
+        }
+      }
+      geometry Box {
+        size 0.02 0.1 2
+      }
+    }
+  ]
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL2 Solid {
+  translation -1.01433 0.02 -0.00149833
+  children [
+    USE WALL_SHAPE
+  ]
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL3 Solid {
+  translation 0.00147307 0.02 1.01101
+  rotation 0 1 0 1.5708
+  children [
+    USE WALL_SHAPE
+  ]
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL4 Solid {
+  translation -0.00609354 0.02 -1.01341
+  rotation 0 1 0 1.5708
+  children [
+    USE WALL_SHAPE
+  ]
+  boundingObject USE WALL_SHAPE
+}
+Supervisor {
+  children [
+    Accelerometer {
+    }
+    Emitter {
+      channel 1
+    }
+    Receiver {
+      channel 1
+    }
+  ]
+  name "supervisor-large"
+  controller "turnFieldSupervisor"
+}
+DecimetricFloor {
+  color 0.8 0.8 0.8
+}
+DEF E-PUCK EPuck {
+  translation -0.22 0 -0.44
+  rotation 0 1 0 4.983
+  controller "turnField"
+}

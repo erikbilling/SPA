@@ -1,0 +1,128 @@
+#VRML_SIM V7.4.1 utf8
+WorldInfo {
+  info [
+    "The model of the E-puck robot"
+    "Author: Simon Blanchoud"
+    "Date: 01 SEP 2006"
+  ]
+  title "E-puck"
+}
+Viewpoint {
+  orientation -0.342126 0.835338 0.430303 2.03483
+  position 0.439006 1.4677 0.176563
+}
+DirectionalLight {
+  ambientIntensity 0.4
+  direction 0.3 -1 -0.5
+  intensity 0.4
+  castShadows TRUE
+}
+DirectionalLight {
+  ambientIntensity 0.4
+  direction 0.3 -1 0.5
+  intensity 0.4
+  castShadows TRUE
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+DEF Maze_Wall1 WoodBox {
+  translation -0.784632 0.03 -0.0115433
+  rotation 0 1 0 1.57
+  boxSize 0.1 0.025 0.2
+}
+DEF Maze_Wall4 WoodBox {
+  translation -0.356485 0.03 0.449873
+  rotation 0 1 0 3.14159
+  boxSize 0.1 0.025 0.3
+}
+DEF Maze_Wall3 WoodBox {
+  translation -0.597631 0.03 -0.121035
+  rotation 0 1 0 3.14159
+  boxSize 0.15 0.025 0.3
+}
+DEF Maze_Wall5 WoodBox {
+  translation -0.756273 0.03 0.650195
+  rotation 0 1 0 3.14159
+  boxSize 0.1 0.025 0.3
+}
+DEF Maze_Wall2 WoodBox {
+  translation -0.553142 0.03 0.55098
+  rotation 0 1 0 1.5708
+  boxSize 0.1 0.025 0.3
+}
+WoodBox {
+  translation -0.65021 1e-05 0.648935
+  boxSize 0.1 1e-06 0.1
+  color 0 1 0
+}
+DEF WALL1 Solid {
+  translation -0.0908449 0.02 -0.00740644
+  children [
+    DEF WALL_SHAPE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 1 1
+          specularColor 0.196078 0.196078 0
+        }
+        texture ImageTexture {
+          url [
+            "textures/brick_wall.jpg"
+          ]
+        }
+        textureTransform TextureTransform {
+          scale 1 0.1
+        }
+      }
+      geometry Box {
+        size 0.02 0.1 2
+      }
+    }
+  ]
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL2 Solid {
+  translation -1.00962 0.02 0.0197423
+  children [
+    USE WALL_SHAPE
+  ]
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL3 Solid {
+  translation 0.00147307 0.02 1.01101
+  rotation 0 1 0 1.5708
+  children [
+    USE WALL_SHAPE
+  ]
+  boundingObject USE WALL_SHAPE
+}
+DEF WALL4 Solid {
+  translation -0.0169079 0.02 0.0885292
+  rotation 0 1 0 1.5708
+  children [
+    USE WALL_SHAPE
+  ]
+  boundingObject USE WALL_SHAPE
+}
+Supervisor {
+  children [
+    Accelerometer {
+    }
+    Emitter {
+      channel 1
+    }
+    Receiver {
+      channel 1
+    }
+  ]
+  controller "turnFieldSupervisor"
+}
+DecimetricFloor {
+  color 0.8 0.8 0.8
+}
+DEF E-PUCK EPuck {
+  translation -0.55 0.03 0.85
+  controller "turnField"
+}
